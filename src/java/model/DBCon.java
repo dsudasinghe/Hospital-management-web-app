@@ -27,7 +27,7 @@ public class DBCon {
         
         try{
             
-            PreparedStatement st = createConnection().prepareStatement("insert into student(username, email, password) values(?, ?, ?)");
+            PreparedStatement st = createConnection().prepareStatement("insert into patiant(username, email, password) values(?, ?, ?)");
             st.setString(1, username);
             st.setString(2, email);
             st.setString(3, password);
