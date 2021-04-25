@@ -1,8 +1,9 @@
 <%-- 
-    Document   : searchdocjsp
-    Created on : 24-Apr-2021, 04:43:04
+    Document   : appintment
+    Created on : 25-Apr-2021, 09:55:55
     Author     : lalin
 --%>
+
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -101,14 +102,14 @@
 .doctors {
   background: #fff;
 }
-
+/*
 .member {
   position: relative;
   box-shadow: 0px 2px 15px rgba(44, 73, 100, 0.08);
   padding: 30px;
   border-radius: 10px;
 }
-
+*/
 .member .pic {
   overflow: hidden;
   width: 180px;
@@ -271,86 +272,18 @@
 
   <main id="main">
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          
-          
-        </div>
-      </div>
-
-
-
-      <div class="container">
-        <div class="row mt-5">
-
-        
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <div class="container-fluid" style="
-    margin-top: 10%; margin-bottom: 10%;" >
-        
-  <form  method="post">
-                         
-  <table style="width:100%" >
-  <tr>
-      <td  colspan="2"  style="
-    padding-bottom: 10%;"><h1>Find Your Doctor</h1>
-               </td>
-  </tr>
-  <tr>
-      <td>
-                  <input type="text" name="Search" placeholder="Search here" style="  position: relative;
- height: 20%;
- width: 80%;
- border-radius: 20px;
- background: #fff;
- outline:none;
- border-color: #1172ca;
- padding-left: 20px;
- ">
-      </td>
-    <td>
-        <input type="submit"  value=" Search " style="  
- border-radius: 25px;
- background-color: #1172ca;
- color:white;
-  border-color:white; 
-;
- " ></td>
-  </tr>
-  
-</table>                    
+      
+      
+      
      
-                  
-          
-                  
-</form>
-
-
-</div>
-    
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-  <!-- ======= Footer ======= -->
-  
-  
-  
-  
-  
-  
-  
-  
+      
+      
+      
+      
+      
+      
+      
+      
   
   
   
@@ -381,35 +314,15 @@
                                              
                                              
                                              
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
+                                                                           
                                              
         <%
-            if(request.getParameter("Search") != null)
+            if(request.getParameter("docid") != null)
             {
-            if(!request.getParameter("Search").equals(" "))
+            if(!request.getParameter("docid").equals(" "))
                     {
-                        String dic =request.getParameter("Search");
-                        out.println(" Results Of  "+dic);
+                        String dic =request.getParameter("docid");
+                        
                       %><div class="row"><%  
                         
                         
@@ -417,7 +330,7 @@
                             try {
                           
                                 DBCon con = new DBCon();
-                                PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM doctor WHERE docfirstname = ?"); 
+                                PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM doctor WHERE docid = ?"); 
                                 ps.setString(1, dic);
                                 ResultSet rs = ps.executeQuery();
                                 while (rs.next()) {
@@ -437,21 +350,20 @@
                 <h4><%=rs.getString(3)%> <%=rs.getString(4)%></h4>
                 <span><%=rs.getString(5)%></span>
                 <p><%=rs.getString(2)%></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+                 <p><%=rs.getString(2)%></p>
+                 <p><%=rs.getString(5)%></p>
+                 <p><%=rs.getString(6)%></p>
+                 <p><%=rs.getString(7)%></p>
+                 <p><%=rs.getString(8)%></p>
+             
+                
             </div>
           </div>
                                 
                               
-                                
-                                
-                                
-                                
+                           
+      
+                   
                                 
                                 
                                 
@@ -504,32 +416,232 @@
                                              
                                              
                                              
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-    
+                                 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <!-- ======= Appointment Section ======= -->
+    <section id="appointment"style="margin-top: 5%;">
+      <div class="container">
 
-                                         </div>
+        <div class="section-title">
+          <h2>Make an Appointment</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
 
-                                        </div>
+        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+          
+          <div class="form-row">
+            <div class="col-md-4 form-group">
+              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group">
+              
+            </div>
+            <div class="col-md-4 form-group">
+              
+              
+            </div>
+          </div>
 
-                                       </div>
-    </section><!-- End Contact Section -->
+          <div class="form-group">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+        </form>
 
+      </div>
+    </section><!-- End Appointment Section -->
+
+  </main><!-- End #main -->
+  <!-- ======= Footer ======= -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
