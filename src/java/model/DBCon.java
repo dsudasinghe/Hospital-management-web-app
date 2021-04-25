@@ -27,7 +27,7 @@ public class DBCon {
         
         try{
             
-            PreparedStatement st = createConnection().prepareStatement("insert into patiant(username, email, password) values(?, ?, ?)");
+            PreparedStatement st = createConnection().prepareStatement("insert into admin(username, email, password) values(?, ?, ?)");
             st.setString(1, username);
             st.setString(2, email);
             st.setString(3, password);
@@ -44,7 +44,7 @@ public class DBCon {
     public boolean verifyUser(String email,String password) throws ClassNotFoundException, SQLException{
         boolean verified=false;
         
-        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE email = ?");
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM admin WHERE email = ?");
         ps.setString(1, email);
         ResultSet rs = ps.executeQuery();
         
