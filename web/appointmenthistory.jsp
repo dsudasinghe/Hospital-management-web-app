@@ -1,9 +1,8 @@
 <%-- 
-    Document   : appintment
-    Created on : 25-Apr-2021, 09:55:55
+    Document   : appointmenthistory
+    Created on : 26-Apr-2021, 23:27:31
     Author     : lalin
 --%>
-
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -103,14 +102,14 @@
 .doctors {
   background: #fff;
 }
-/*
+
 .member {
   position: relative;
   box-shadow: 0px 2px 15px rgba(44, 73, 100, 0.08);
   padding: 30px;
   border-radius: 10px;
 }
-*/
+
 .member .pic {
   overflow: hidden;
   width: 180px;
@@ -237,18 +236,18 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-                  <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.html">Home</a></li>
           <li><a href="#about">appointments</a></li>
           <li><a href="#services">history
               </a></li>
           <li><a href="#about">logout</a></li>
    
      
-          
-
-            </ul>
-          </li>
-          
+              
+              
+ 
+              
+       
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -261,7 +260,9 @@
 
   <main id="main">
 
-  
+      
+      
+      
           <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
@@ -292,10 +293,6 @@ out.print(""+name2+"  "+name1+"");
       </div>
     </section><!-- End Breadcrumbs Section -->
       
-          
-      
-      
-     
       
       
       
@@ -304,6 +301,18 @@ out.print(""+name2+"  "+name1+"");
       
       
       
+      
+
+  </main><!-- End #main -->
+  <!-- ======= Footer ======= -->
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -334,15 +343,35 @@ out.print(""+name2+"  "+name1+"");
                                              
                                              
                                              
-                                                                           
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
                                              
         <%
-            if(request.getParameter("docid") != null)
-            {
-            if(!request.getParameter("docid").equals(" "))
-                    {
-                        String dic =request.getParameter("docid");
-                        
+            
+            
+            
+            
+              String dic=nameid;
+                        out.println(" Results Of  "+dic);
                       %><div class="row"><%  
                         
                         
@@ -350,8 +379,8 @@ out.print(""+name2+"  "+name1+"");
                             try {
                           
                                 DBCon con = new DBCon();
-                                PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM doctor WHERE docid = ?"); 
-                                ps.setString(1, dic);
+                                PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM doctor WHERE docfirstname = ?"); 
+                                ps.setString(1, "hiranya");
                                 ResultSet rs = ps.executeQuery();
                                 while (rs.next()) {
                          %>
@@ -370,20 +399,22 @@ out.print(""+name2+"  "+name1+"");
                 <h4><%=rs.getString(3)%> <%=rs.getString(4)%></h4>
                 <span><%=rs.getString(5)%></span>
                 <p><%=rs.getString(2)%></p>
-                 <p><%=rs.getString(2)%></p>
-                 <p><%=rs.getString(5)%></p>
-                 <p><%=rs.getString(6)%></p>
-                 <p><%=rs.getString(7)%></p>
-                 <p><%=rs.getString(8)%></p>
-             
-                
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+                <a href="http://localhost:8080/Hospital_Management_Web/appintment.jsp?docid=<%=rs.getString(1)%>"> make an appointment</a>
+              </div>
             </div>
           </div>
                                 
                               
-                           
-      
-                   
+                                
+                                
+                                
+                                
                                 
                                 
                                 
@@ -419,14 +450,9 @@ out.print(""+name2+"  "+name1+"");
                         
                         
                     }
-            else{
-                out.println("<html> DEDICATED TOWARDS ENSURING THE BEST SERVICE </html>");
-            }
+   
             
-            }
-            else{
-                out.println("<html> DEDICATED TOWARDS ENSURING THE BEST SERVICE </html>");
-            }
+          
             %>                                      
                                                    
       
@@ -436,234 +462,32 @@ out.print(""+name2+"  "+name1+"");
                                              
                                              
                                              
-                                 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-    <!-- ======= Appointment Section ======= -->
-    <section id="appointment"style="margin-top: 5%;">
-      <div class="container">
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+    
 
-        <div class="section-title">
-          <h2>Make an Appointment</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
+                                         </div>
 
-        <form action="appointmentmng" method="post" role="form" class="php-email-form">
-          
-          <div class="form-row">
-            <div class="col-md-4 form-group">
-              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group">
-                <input name="patientid" value="<% out.print(""+nameid+""); %> " hidden>
-                <input name="docid" value="<%String id1=request.getParameter("docid");out.print(""+id1+"");%>" hidden>
-                
-            </div>
-            <div class="col-md-4 form-group">
-              
-              
-            </div>
-          </div>
+                                        </div>
 
-          <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
-        </form>
+                                       </div>
+    </section><!-- End Contact Section -->
 
-      </div>
-    </section><!-- End Appointment Section -->
-
-  </main><!-- End #main -->
-  <!-- ======= Footer ======= -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   

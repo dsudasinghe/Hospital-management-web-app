@@ -9,6 +9,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="model.DBCon"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 
 
 
@@ -239,9 +240,14 @@
           <li><a href="#about">appointments</a></li>
           <li><a href="#services">history
               </a></li>
+          <li><a href="#about">logout</a></li>
    
      
-          
+              
+              
+ 
+              
+       
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -254,6 +260,51 @@
 
   <main id="main">
 
+      
+      
+      
+          <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2> <%   
+  
+String nameid=(String)session.getAttribute("patientids");    //Getting Session Attribute
+
+
+DBCon con2 = new DBCon();
+
+String name1 =con2.getFirstNameUsingId(nameid);
+
+String name2 =con2.getLaststNameUsingId(nameid);
+
+
+
+
+out.print(""+name2+"  "+name1+"");  
+  
+%></h2>
+          <ol>
+           
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">

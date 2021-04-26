@@ -74,6 +74,7 @@ public class Login extends HttpServlet {
         
         try {
             if(con.verifyUser(email, password)){
+                
                 out.println("Welcome");
                 RequestDispatcher req = request.getRequestDispatcher("patiantView.html");
                 req.include(request, response);
