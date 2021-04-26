@@ -237,7 +237,7 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">appointments</a></li>
+          <li><a href="appointmenthistory.jsp">appointments</a></li>
           <li><a href="#services">history
               </a></li>
           <li><a href="#about">logout</a></li>

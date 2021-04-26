@@ -317,142 +317,46 @@ out.print(""+name2+"  "+name1+"");
   
   
   
-    <!-- =======  Section ======= -->
-    <section id="result" class="contact">
-
-                                      <div class="container">
-                                       <div class="row mt-5">
-                                         <div class="col-lg-8 mt-5 mt-lg-0">
-
-            
-                                             
-                                             
-         
-                                             
-                                             
-                                             
-                              <div class="row">
-
-       
-          
-        </div>                      
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
+  
+  
+  
+  
+  
+  
+  
+  
+                                         
                                              
         <%
-            
-            
-            
-            
-              String dic=nameid;
-                        out.println(" Results Of  "+dic);
-                      %><div class="row"><%  
-                        
-                        
-                        
-                            try {
-                          
-                                DBCon con = new DBCon();
-                                PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM doctor WHERE docfirstname = ?"); 
-                                ps.setString(1, "hiranya");
-                                ResultSet rs = ps.executeQuery();
-                                while (rs.next()) {
-                         %>
-                        <div >
-                    
-
-                                
+             DBCon con = new DBCon();
+             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM appointment WHERE patientid = ?"); 
+             ps.setString(1, nameid);
+             ResultSet rs = ps.executeQuery();
+        
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("message");
                   
-               
-            <div class="col-lg-14" style="
-    margin-bottom: 5%; margin-top: 5%"  >
-            <div class="member d-flex align-items-start">
-                <div class="pic">
-                    <img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><%=rs.getString(3)%> <%=rs.getString(4)%></h4>
-                <span><%=rs.getString(5)%></span>
-                <p><%=rs.getString(2)%></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-                <a href="http://localhost:8080/Hospital_Management_Web/appintment.jsp?docid=<%=rs.getString(1)%>"> make an appointment</a>
-              </div>
-            </div>
-          </div>
-                                
-                              
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                <%
-                                        }
-                                       // con.close();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                %>
-                               
-                        
-                          </div>   
-                        
-                        
-                         <%
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    }
-   
+                  String idr2 = rs.getString("docid");
+                  String id4=con.getfulDocNameUsingId(idr2);
+                  out.print(""+idr+"  DR."+id4+"");
+                  
             
-          
+
+                  %>
+                   
+                  </div>
+                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%=rs.getString(1)%>"> delete</a>
+              </div>
+                  
+                  
+                  
+                  <br>
+                  
+                  <%
+                 
+              }
             %>                                      
                                                    
       
@@ -461,46 +365,7 @@ out.print(""+name2+"  "+name1+"");
                                              
                                              
                                              
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-    
-
-                                         </div>
-
-                                        </div>
-
-                                       </div>
-    </section><!-- End Contact Section -->
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+                               
   
   
   
