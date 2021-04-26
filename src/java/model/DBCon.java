@@ -63,9 +63,29 @@ public class DBCon {
     
     
     
+    //appointment------------------------------------------------------------------------------------
+        
+    public boolean addappointment(String username, String firstname, String lastname, String email){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("insert into patiant(username, firstname, lastname, email) values(?, ?, ?, ?)");
+            st.setString(1, "e");
+            st.setString(2, "e");
+            st.setString(3, "E");
+            st.setString(4, "E");
+            
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+        }
+        
+        return x == 1;
+    }
     
-    
-    
+        //end appointment------------------------------------------------------------------------------------
     
     //patient login and register------------------------------------------------------------------------------------
     
@@ -167,5 +187,32 @@ public class DBCon {
     
     }
     
+    
  //------------------------------------------end of doctor register/login---------------------------------------------  
+     
+    public boolean apintmentss(String docid, String patientid, String date, String message){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("insert into appointment(docid, patientid, date, message) values(?, ?, ?, ?)");
+            st.setString(1, docid);
+            st.setString(2, patientid);
+            st.setString(3, date);
+            st.setString(4, message);
+      
+            x =st.executeUpdate();
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return true;
+    }
+    
 }
+
+
+ 
+    
+  

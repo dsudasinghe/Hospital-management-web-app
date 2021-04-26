@@ -236,27 +236,14 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#departments">Departments</a></li>
-          <li><a href="#doctors">Doctors</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+                  <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="#about">appointments</a></li>
+          <li><a href="#services">history
+              </a></li>
+   
+     
+          
+
             </ul>
           </li>
           
@@ -599,7 +586,7 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <form action="appointmentmng" method="post" role="form" class="php-email-form">
           
           <div class="form-row">
             <div class="col-md-4 form-group">
@@ -607,7 +594,9 @@
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group">
-              
+                <input name="docid" value="test" hidden>
+                <input name="patientid" value="test2" hidden>
+                <input name="date1" value="test" hidden>
             </div>
             <div class="col-md-4 form-group">
               
