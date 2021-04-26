@@ -115,4 +115,57 @@ public class DBCon {
     }
     //-----------------------------------------------end of patient login/register--------------------------------------------------
     
+    
+    
+    
+    
+    
+    
+    
+    //-----------------------------------------------doctor login/register-----------------------------------
+    
+   
+    
+    public boolean registerDoctor(String docfirstname,String doclastname,String doc_nic,String password,String specialization,String availabledays,String availabletimes,String gender,String aboutme){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("insert into doctor( docfirstname, doclastname, doc_nic, password, specialization, availabledays, availabletimes, gender, aboutme) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            st.setString(1, docfirstname);
+            st.setString(2, doclastname);
+            st.setString(3, doc_nic);
+            st.setString(4, password);
+            st.setString(5, specialization);
+            st.setString(6, availabledays);
+            st.setString(7, availabletimes);
+            st.setString(8, gender);
+            st.setString(9, aboutme);
+            
+            x =st.executeUpdate();
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return x == 1;
+    }
+    
+    
+    public boolean verifyDoctor(String doc_nic,String password) throws ClassNotFoundException, SQLException{
+        boolean verified=false;
+        
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM doctor WHERE doc_nic = ?");
+        ps.setString(1, doc_nic);
+        ResultSet rs = ps.executeQuery();
+        
+        if(rs.next() && password.equals(rs.getString("password"))){
+            verified= true;
+        }
+        
+        return verified;
+    
+    }
+    
+ //------------------------------------------end of doctor register/login---------------------------------------------  
 }

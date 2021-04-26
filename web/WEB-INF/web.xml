@@ -16,6 +16,14 @@
         <servlet-name>PatientLogin</servlet-name>
         <servlet-class>controller.PatientLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DoctorRegister</servlet-name>
+        <servlet-class>controller.DoctorRegister</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DoctorLogin</servlet-name>
+        <servlet-class>controller.DoctorLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>PatientLogin</servlet-name>
         <url-pattern>/PatientLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoctorRegister</servlet-name>
+        <url-pattern>/DoctorRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoctorLogin</servlet-name>
+        <url-pattern>/DoctorLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

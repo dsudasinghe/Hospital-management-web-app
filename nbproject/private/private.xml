@@ -5,6 +5,11 @@
         <group>
             <file>file:/E:/Dev/Hospital%20Management%20Web/src/java/model/DBCon.java</file>
             <file>file:/E:/Dev/Hospital%20Management%20Web/src/java/controller/PatientLogin.java</file>
+            <file>file:/E:/Dev/Hospital%20Management%20Web/web/loginError.html</file>
+            <file>file:/E:/Dev/Hospital%20Management%20Web/web/index.html</file>
+            <file>file:/E:/Dev/Hospital%20Management%20Web/src/java/controller/DoctorLogin.java</file>
+            <file>file:/E:/Dev/Hospital%20Management%20Web/src/java/controller/DoctorRegister.java</file>
+            <file>file:/E:/Dev/Hospital%20Management%20Web/web/DoctorRegister.html</file>
             <file>file:/E:/Dev/Hospital%20Management%20Web/src/java/controller/PatientRegister.java</file>
             <file>file:/E:/Dev/Hospital%20Management%20Web/src/java/controller/Register.java</file>
         </group>
