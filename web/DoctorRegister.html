@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Patient Login</title>
+  <title>Doctor Register</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -60,12 +60,14 @@
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
           <li><a href="#about">About</a></li>
+          
           <li><a href="#doctors">Doctors</a></li>
+          
 
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="PatientRegister.html" class="appointment-btn scrollto">Register here</a>
+      <a href="DoctorLogin.html" class="appointment-btn scrollto">Login</a>
 
     </div>
   </header><!-- End Header -->
@@ -77,10 +79,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Patient Login</h2>
+          <h2>Doctor Register</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Patient Login</li>
+            <li>Doctor Register</li>
           </ol>
         </div>
 
@@ -107,24 +109,63 @@
 
 
 
-          <h3>Patient login</h3>
-          
-          
+        <h3>Doctor Register</h3>
 
-        <form action="PatientLogin" method="POST">
+        <form action="DoctorRegister" method="POST">
           <table>
-              <td><label>Email :</label></td>
-              <td><input type="text" id="email" name="email"></td>
-            </tr>  
+            <tr>
+              <td><label>First Name :</label></td>
+              <td><input type="text" id="docfirstname" name="docfirstname"></td>
+            </tr>
+            <tr>
+              <td><label>Last Name :</label></td>
+              <td><input type="text" id="doclastname" name="doclastname"></td>
+            </tr>
+            <tr>
+              <td><label>NIC :</label></td>
+              <td><input type="text" id="doc_nis" name="doc_nic"></td>
+            </tr>
             <tr>
               <td><label>Password :</label></td>
               <td><input type="password" id="password" name="password"></td>
             </tr>
+            <tr>
+              <td><label>Specialization :</label></td>
+              <td><input type="text" id="specialization" name="specialization"></td>
+            </tr>  
+            
+            <tr>
+              <td><label>Available Days :</label></td>
+              <td><input type="text" id="availabledays" name="availabledays"></td>
+            </tr>
+
+            <tr>
+              <td><label>Available Times:</label></td>
+              <td><input type="text" id="availabletimes" name="availabletimes"></td>
+            </tr>
+
+            <tr>
+              <td><label>Gender :</label></td>
+              <td><input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label></td>
+            </tr>
+            
+            <tr>
+              <td><label>About :</label></td>
+              <td> <textarea id="about" name="about" rows="3" cols="20">
+                
+              </textarea> </td>
+            </tr>
+
               
           </table><br>
-          <input type="submit" value="Login" style="background-color: #1977cc; border: #1977cc 2px solid; color: white;">
-          
-          <p style="margin-top: 7px">Don't have an account? <a href="PatientRegister.html">Register Here. </a></p>
+          <input type="submit" value="Register" style="background-color: #1977cc; border: #1977cc 2px solid; color: white;">
+      </form>
+
       </div>
     </section>
 
@@ -169,6 +210,7 @@
           </div>
 
           
+
         </div>
       </div>
     </div>
