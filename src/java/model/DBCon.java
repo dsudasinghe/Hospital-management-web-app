@@ -295,6 +295,59 @@ public class DBCon {
     
     
     
+       public int getNumofAppointmentFordayUsingId(String id,String day) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT COUNT(appointmentid) FROM appointment WHERE docid = ?AND date=?");
+        ps.setString(1, id);
+        ps.setString(2, day);
+               ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  int numberOfRows = rs.getInt(1);
+                  return numberOfRows;
+              }
+        return 0;
+        
+        
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     //------------------------------------------ doc session management stuffs--------------------------------------------- 
+    
+    
+    public String getdocidusingnic(String doc_nic) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM doctor WHERE doc_nic = ?");
+        ps.setString(1, doc_nic);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("docid");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+        
+    
+    }
+    
+    
+    
+    
     
     
     

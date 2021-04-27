@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.DBCon;
 
 /**
@@ -72,9 +73,12 @@ public class DoctorLogin extends HttpServlet {
         
         try {
             if(con.verifyDoctor(doc_nic, password)){
+   
+                HttpSession session=request.getSession();
+                String x=con.getdocidusingnic(doc_nic);
+                session.setAttribute("docids",x); 
+                response.sendRedirect("doctordash.jsp");
                 
-                RequestDispatcher req = request.getRequestDispatcher("patiantView.html");
-                req.include(request, response);
             }
             else{
                 RequestDispatcher req = request.getRequestDispatcher("loginError.html");
