@@ -240,7 +240,7 @@
           <li><a href="#appointments">appointments</a></li>
           <li><a href="#history">history
               </a></li>
-          <li><a href="#logout">logout</a></li>
+          <li><a href="logout.jsp">logout</a></li>
    
      
               
@@ -358,7 +358,7 @@ out.print(""+name2+"  "+name1+"");
                   %>&nbsp;&nbsp;<%
                   String idr2 = rs.getString("docid");
                   String id4=con.getfulDocNameUsingId(idr2);
-                  out.print(""+idr+"       DR."+id4+"                                   ");
+                  out.print("DR."+id4+"       "+idr+"                                   ");
                   
             
 

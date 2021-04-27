@@ -241,7 +241,7 @@
           <li><a href="#appointments">appointments</a></li>
           <li><a href="#history">history
               </a></li>
-          <li><a href="#logout">logout</a></li>
+          <li><a href="logout.jsp">logout</a></li>
    
      
               

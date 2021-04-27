@@ -240,7 +240,7 @@
           <li><a href="appointmenthistory.jsp">appointments</a></li>
           <li><a href="#services">history
               </a></li>
-          <li><a href="#about">logout</a></li>
+          <li><a href="logout.jsp">logout</a></li>
    
      
               
