@@ -237,10 +237,10 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">appointments</a></li>
-          <li><a href="#services">history
+          <li><a href="#appointments">appointments</a></li>
+          <li><a href="#history">history
               </a></li>
-          <li><a href="#about">logout</a></li>
+          <li><a href="#logout">logout</a></li>
    
      
               
@@ -323,7 +323,7 @@ out.print(""+name2+"  "+name1+"");
   
   
   
-  
+  <section id="appointment">
   
                                          
                                              
@@ -334,23 +334,42 @@ out.print(""+name2+"  "+name1+"");
              ResultSet rs = ps.executeQuery();
         
         
+             
+            
+             
              while (rs.next())
               {
-                  String idr = rs.getString("message");
                   
+                  %>
+                  
+                  
+                    <div class="col-lg-6" style="
+     margin-top: 5%;left:10%;"  >
+            <div class="member d-flex align-items-start">
+              
+             
+                  
+                <h4><%=rs.getString(4)%> </h4>
+                  <%
+                  
+                  
+                  
+                  String idr = rs.getString("message");
+                  %>&nbsp;&nbsp;<%
                   String idr2 = rs.getString("docid");
                   String id4=con.getfulDocNameUsingId(idr2);
-                  out.print(""+idr+"  DR."+id4+"");
+                  out.print(""+idr+"       DR."+id4+"                                   ");
                   
             
 
                   %>
                    
+                &nbsp;&nbsp;&nbsp;
+                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>"> delete</a>
+            
                   </div>
-                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%=rs.getString(1)%>"> delete</a>
-              </div>
-                  
-                  
+          </div>
+                
                   
                   <br>
                   
@@ -395,7 +414,7 @@ out.print(""+name2+"  "+name1+"");
   
   
   
-  
+  </section>
   
   
   
