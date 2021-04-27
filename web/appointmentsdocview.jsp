@@ -1,8 +1,9 @@
 <%-- 
-    Document   : doctordash
-    Created on : 27-Apr-2021, 15:47:46
+    Document   : appointmentsdocview
+    Created on : 27-Apr-2021, 19:29:14
     Author     : lalin
 --%>
+
 
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.sql.ResultSet"%>
@@ -240,7 +241,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-                 <li class="active"><a href="doctordash.jsp">Home</a></li>
+           <li class="active"><a href="doctordash.jsp">Home</a></li>
           <li><a href="appointmentsdocview.jsp">appointments</a></li>
           <li><a href="patientsdocview.jsp">patients
               </a></li>
@@ -300,89 +301,106 @@ out.print(""+name1+"");
       
       
       
-      
-      
-      
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
 
-        <div class="section-title">
-         
-            <h1>Welcome Dr.
-            <% out.print(name1); %> You have 
-         <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+  </main><!-- End #main -->
+  <!-- ======= Footer ======= -->
+  
+  <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
            String formattedDate = df.format(new Date());
             
 
             int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
             out.print(""+x+"");
-         %> 
- appointments today</h1>
- 
- 
- 
- 
- 
- 
- 
- <div style="margin-top:10%;">
- <a href="todayappointmentsdocview.jsp" class="more-btn">Check Today Appointments </i>
+         %>
   
-  </div>
-        </div>
- 
- 
- 
- 
- 
- 
-    
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-      </div>
-
- 
-
-
-      <div class="container">
-        <div class="row mt-5">
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <section id="appointment">
+  
+                                         
+                                             
+        <%
+             DBCon con = new DBCon();
+             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM appointment WHERE docid = ?"); 
+             ps.setString(1, nameid);
+             ResultSet rs = ps.executeQuery();
         
+        
+             
+            
+             
+             while (rs.next())
+              {
+                  
+                  %>
+                  
+                  
+                    <div class="col-lg-8" style="
+     margin-top: 5%;left:10%;"  >
+            <div class="member d-flex align-items-start">
+              
+             
+                <div class="col-lg-3"> 
+                <h4><%=rs.getString(4)%> </h4>
+                </div> 
+               
+                  <%
+                  
+                  
+                  
+                  String idr = rs.getString("message");
+                  %>
+                  
+               
+                  
+                  <div class="col-lg-3">
+                  &nbsp;&nbsp;<%
+                  String idr2 = rs.getString("patientid");
+                  String id4=con.getfullpatientNameUsingId(idr2);
+                  out.print(""+id4+"                                    ");
+      
+                  %>&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div class="col-lg-3">
+                      <% out.print(" "+idr+" ");%>
+                  </div>
+                  
+                 <div class="col-lg-3"> 
+                &nbsp;&nbsp;&nbsp;
+                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>" style="color:red"> delete</a>
+                </div>
+                </div>
+                  </div>
+          </div>
+                
+                  
+                  <br>
+                  
+                  <%
+                 
+              }
+            %>                                      
+                                                   
+      
 
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-  <!-- ======= Footer ======= -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <!-- =======  Section ======= -->
-    <section id="result" class="contact">
-
-    </section><!-- End Contact Section -->
-
+                                             
+                                             
+                                             
+                                             
+                               
   
   
   
@@ -412,20 +430,7 @@ out.print(""+name1+"");
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  </section>
   
   
   

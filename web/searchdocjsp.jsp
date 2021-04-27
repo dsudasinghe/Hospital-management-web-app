@@ -477,7 +477,7 @@ out.print(""+name2+"  "+name1+"");
                   <a href=""><i class="ri-instagram-fill"></i></a>
                   <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
                 </div>
-                <a href="http://localhost:8080/Hospital_Management_Web/appintment.jsp?docid=<%=rs.getString(1)%>"> make an appointment</a>
+                <a href="appintment.jsp?docid=<%=rs.getString(1)%>"> make an appointment</a>
               </div>
             </div>
           </div>

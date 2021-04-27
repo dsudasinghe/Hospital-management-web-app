@@ -272,6 +272,45 @@ public class DBCon {
     }
     
     
+         
+      public String getfullpatientNameUsingId(String id) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE id = ?");
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("firstname");
+                  String idr2 = rs.getString("lastname");
+                   String idr3=idr+" "+idr2;
+      
+                  return idr3;
+              }
+        return "0";
+        
+        
+    
+    }
+        
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
     
     
     public String getfulDocNameUsingId(String id) throws ClassNotFoundException, SQLException{
