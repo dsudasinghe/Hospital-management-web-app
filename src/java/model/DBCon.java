@@ -210,6 +210,102 @@ public class DBCon {
         return true;
     }
     
+    
+    
+    //------------------------------------------session management stuffs--------------------------------------------- 
+    
+    public String getidusingemail(String email) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE email = ?");
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("id");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+        
+    
+    }
+    
+        public String getFirstNameUsingId(String id) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE id = ?");
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("firstname");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+        
+    
+    }
+    
+         public String getLaststNameUsingId(String id) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE id = ?");
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("lastname");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+        
+    
+    }
+    
+    
+    
+    
+    public String getfulDocNameUsingId(String id) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM doctor WHERE docid = ?");
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("docfirstname");
+                  String idr2 = rs.getString("doclastname");
+                  String idr3=idr+" "+idr2;
+                  return idr3;
+              }
+        return "0";
+        
+        
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 

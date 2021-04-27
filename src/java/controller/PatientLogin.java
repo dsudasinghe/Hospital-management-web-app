@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DBCon;
+import javax.servlet.http.HttpSession;  
 
 /**
  *
@@ -73,9 +74,10 @@ public class PatientLogin extends HttpServlet {
         
         try {
             if(con.verifyPatient(email, password)){
-                
-                RequestDispatcher req = request.getRequestDispatcher("patiantView.html");
-                req.include(request, response);
+                HttpSession session=request.getSession();
+                email=con.getidusingemail(email);
+                session.setAttribute("patientids",email); 
+                response.sendRedirect("searchdocjsp.jsp");
             }
             else{
                 RequestDispatcher req = request.getRequestDispatcher("loginError.html");

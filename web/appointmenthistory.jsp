@@ -1,9 +1,8 @@
 <%-- 
-    Document   : patienthistory
-    Created on : 26-Apr-2021, 10:26:14
+    Document   : appointmenthistory
+    Created on : 26-Apr-2021, 23:27:31
     Author     : lalin
 --%>
-
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -324,7 +323,7 @@ out.print(""+name2+"  "+name1+"");
   
   
   
-  <section id="history">
+  <section id="appointment">
   
                                          
                                              

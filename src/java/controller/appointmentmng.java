@@ -71,7 +71,7 @@ public class appointmentmng extends HttpServlet {
               String docid = request.getParameter("docid");
               String patientid = request.getParameter("patientid");
               String date = request.getParameter("date");
-              String message = request.getParameter("date");
+              String message = request.getParameter("message");
               
           
         if(con.apintmentss(docid,patientid,date,message)){

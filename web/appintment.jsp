@@ -10,6 +10,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="model.DBCon"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 
 
 
@@ -240,6 +241,7 @@
           <li><a href="#about">appointments</a></li>
           <li><a href="#services">history
               </a></li>
+          <li><a href="#about">logout</a></li>
    
      
           
@@ -259,7 +261,38 @@
 
   <main id="main">
 
+  
+          <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2> <%   
+  
+String nameid=(String)session.getAttribute("patientids");    //Getting Session Attribute
+
+
+DBCon con2 = new DBCon();
+
+String name1 =con2.getFirstNameUsingId(nameid);
+
+String name2 =con2.getLaststNameUsingId(nameid);
+
+
+
+
+out.print(""+name2+"  "+name1+"");  
+  
+%></h2>
+          <ol>
+           
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
       
+          
       
       
      
@@ -594,9 +627,9 @@
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group">
-                <input name="docid" value="test" hidden>
-                <input name="patientid" value="test2" hidden>
-                <input name="date1" value="test" hidden>
+                <input name="patientid" value="<% out.print(""+nameid+""); %> " hidden>
+                <input name="docid" value="<%String id1=request.getParameter("docid");out.print(""+id1+"");%>" hidden>
+                
             </div>
             <div class="col-md-4 form-group">
               
