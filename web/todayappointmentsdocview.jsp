@@ -240,15 +240,12 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-           <li class="active"><a href="doctordash.jsp">Home</a></li>
+          <li class="active"><a href="doctordash.jsp">Home</a></li>
           <li><a href="appointmentsdocview.jsp">appointments</a></li>
           <li><a href="patientsdocview.jsp">patients
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
    
-     
-              
-              
  
               
        
@@ -380,7 +377,7 @@ out.print(""+name1+"");
                       <% out.print(" "+idr+" ");%>
                   </div>
                     <div class="col-lg-3">
-                  <p><a href="https://www.w3schools.com">
+                  <p><a href="giveprescriptions.jsp?pid=<%=rs.getString(3)%>">
 <img src="images/expand.png" alt="W3Schools.com" width="50" height="50">
 </a>
              &nbsp;&nbsp;     <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>" style="color:red"> delete</a></p>
@@ -507,55 +504,6 @@ out.print(""+name1+"");
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
   
   
   

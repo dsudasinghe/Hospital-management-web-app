@@ -386,6 +386,25 @@ public class DBCon {
     
     
     
+        public boolean addToHistory(String patientid, String docid, String symptoms, String prescription, String date){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("insert into phistory(patientid, docid, symptoms, prescription, date) values(?, ?, ?, ?, ?)");
+            st.setString(1, patientid);
+            st.setString(2, docid);
+            st.setString(3, symptoms);
+            st.setString(4, prescription);
+            st.setString(5, date);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
+    
     
     
     
