@@ -314,16 +314,6 @@ out.print(""+name2+"  "+name1+"");
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <section id="history">
   
                                          

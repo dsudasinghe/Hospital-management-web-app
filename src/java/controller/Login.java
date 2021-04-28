@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DBCon;
 
+
 /**
  *
  * @author User
@@ -70,10 +71,10 @@ public class Login extends HttpServlet {
         DBCon con = new DBCon();
         
         String email = request.getParameter("email"),
-                password = request.getParameter("password");
-        
+         password = request.getParameter("password");
+         String epassword =Encrypt.Md5encryption(password);
         try {
-            if(con.verifyUser(email, password)){
+            if(con.verifyUser(email, epassword)){
                 
                 out.println("Welcome");
                 RequestDispatcher req = request.getRequestDispatcher("patiantView.html");

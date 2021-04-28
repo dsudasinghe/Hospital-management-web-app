@@ -7,6 +7,9 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -66,8 +69,7 @@ public class appointmentmng extends HttpServlet {
         processRequest(request, response);
         
         
-        
-              DBCon con =new DBCon();
+          DBCon con =new DBCon();
               String docid = request.getParameter("docid");
               String patientid = request.getParameter("patientid");
               String date = request.getParameter("date");
@@ -102,6 +104,7 @@ public class appointmentmng extends HttpServlet {
 
         }
   
+        
         
         
         }}}

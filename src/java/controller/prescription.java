@@ -7,8 +7,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,9 +16,10 @@ import model.DBCon;
 
 /**
  *
- * @author User
+ * @author lalin
  */
-public class DoctorRegister extends HttpServlet {
+@WebServlet(name = "prescription", urlPatterns = {"/prescription"})
+public class prescription extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +33,7 @@ public class DoctorRegister extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -62,38 +63,64 @@ public class DoctorRegister extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         DBCon con =new DBCon();
         
-        String docfirstname = request.getParameter("docfirstname"),
-               doclastname = request.getParameter("doclastname"), 
-               doc_nic = request.getParameter("doc_nic"),
-               password = request.getParameter("password"),
-               specialization = request.getParameter("specialization"), 
-               availabledays = request.getParameter("availabledays"),
-               availabletimes = request.getParameter("availabletimes"),
-               gender = request.getParameter("gender"), 
-               aboutme = request.getParameter("aboutme");
-        String epassword =Encrypt.Md5encryption(password);
-        if(con.registerDoctor( docfirstname, doclastname, doc_nic, epassword, specialization, availabledays, availabletimes, gender, aboutme)){
-            
-            RequestDispatcher req = request.getRequestDispatcher("DoctorLogin.html");
-            req.include(request, response);
-        }
+        
+          DBCon con =new DBCon();
+              String patientid = request.getParameter("patientid");
+              String docid = request.getParameter("docid");
+              String symptoms = request.getParameter("symptoms");
+              String prescription = request.getParameter("prescription");
+              String date = request.getParameter("date");
+          
+        if(con.addToHistory(patientid,docid,symptoms,prescription,date)){
+            try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet NewServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1> request sucsessfull</h1>");
+            out.println("</body>");
+            out.println("</html>");
+            }}
         else{
-            
-            RequestDispatcher req = request.getRequestDispatcher("loginError.html");
-            req.include(request, response);
+                        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet NewServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>appointment not successful " +date+ "<h1>");
+            out.println("</body>");
+            out.println("</html>");
+
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    }
 }

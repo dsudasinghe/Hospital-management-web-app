@@ -272,6 +272,45 @@ public class DBCon {
     }
     
     
+         
+      public String getfullpatientNameUsingId(String id) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE id = ?");
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("firstname");
+                  String idr2 = rs.getString("lastname");
+                   String idr3=idr+" "+idr2;
+      
+                  return idr3;
+              }
+        return "0";
+        
+        
+    
+    }
+        
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
     
     
     public String getfulDocNameUsingId(String id) throws ClassNotFoundException, SQLException{
@@ -293,6 +332,78 @@ public class DBCon {
     
     }
     
+    
+    
+       public int getNumofAppointmentFordayUsingId(String id,String day) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT COUNT(appointmentid) FROM appointment WHERE docid = ?AND date=?");
+        ps.setString(1, id);
+        ps.setString(2, day);
+               ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  int numberOfRows = rs.getInt(1);
+                  return numberOfRows;
+              }
+        return 0;
+        
+        
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     //------------------------------------------ doc session management stuffs--------------------------------------------- 
+    
+    
+    public String getdocidusingnic(String doc_nic) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM doctor WHERE doc_nic = ?");
+        ps.setString(1, doc_nic);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("docid");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+        
+    
+    }
+    
+    
+    
+        public boolean addToHistory(String patientid, String docid, String symptoms, String prescription, String date){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("insert into phistory(patientid, docid, symptoms, prescription, date) values(?, ?, ?, ?, ?)");
+            st.setString(1, patientid);
+            st.setString(2, docid);
+            st.setString(3, symptoms);
+            st.setString(4, prescription);
+            st.setString(5, date);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
     
     
     

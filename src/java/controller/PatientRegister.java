@@ -67,15 +67,15 @@ public class PatientRegister extends HttpServlet {
         
         String username = request.getParameter("username"),
                email = request.getParameter("email"), 
-               password = request.getParameter("password"),
+               password = request.getParameter("password"),          
                firstname = request.getParameter("firstname"),
                lastname = request.getParameter("lastname"), 
                dob = request.getParameter("dob"),
                gender = request.getParameter("gender"),
                bloodgroup = request.getParameter("bloodgroup"), 
                allergy = request.getParameter("allergy");
-        
-        if(con.registerPatient(username, firstname, lastname, email, password, dob, gender, bloodgroup, allergy)){
+        String epassword =Encrypt.Md5encryption(password);
+        if(con.registerPatient(username, firstname, lastname, email, epassword, dob, gender, bloodgroup, allergy)){
             
             RequestDispatcher req = request.getRequestDispatcher("PatientLogin.html");
             req.include(request, response);

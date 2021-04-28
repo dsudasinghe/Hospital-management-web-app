@@ -1,15 +1,20 @@
 <%-- 
-    Document   : searchdocjsp
-    Created on : 24-Apr-2021, 04:43:04
+    Document   : appointmentsdocview
+    Created on : 27-Apr-2021, 19:29:14
     Author     : lalin
 --%>
 
+
+<%@page import="java.text.DateFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="model.DBCon"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.servlet.http.HttpSession"%>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
 
 
 
@@ -236,9 +241,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-                 <li class="active"><a href="searchdocjsp.jsp">Home</a></li>
-          <li><a href="appointmenthistory.jsp">appointments</a></li>
-          <li><a href="patienthistory.jsp">history
+           <li class="active"><a href="doctordash.jsp">Home</a></li>
+          <li><a href="appointmentsdocview.jsp">appointments</a></li>
+          <li><a href="patientsdocview.jsp">patients
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
    
@@ -270,19 +275,13 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2> <%   
   
-String nameid=(String)session.getAttribute("patientids");    //Getting Session Attribute
-
+String nameid=(String)session.getAttribute("docids");    //Getting Session Attribute
 
 DBCon con2 = new DBCon();
 
-String name1 =con2.getFirstNameUsingId(nameid);
+String name1 =con2.getfulDocNameUsingId(nameid);
 
-String name2 =con2.getLaststNameUsingId(nameid);
-
-
-
-
-out.print("Welcome, "+name1+"  "+name2+"");  
+out.print(""+name1+"");  
   
 %></h2>
           <ol>
@@ -302,234 +301,97 @@ out.print("Welcome, "+name1+"  "+name2+"");
       
       
       
-      
-      
-      
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          
-          
-        </div>
-      </div>
-
-
-
-      <div class="container">
-        <div class="row mt-5">
-
-        
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <div class="container-fluid" style="
-    margin-top: 10%; margin-bottom: 10%;" >
-        
-  <form  method="post">
-                         
-  <table style="width:100%" >
-  <tr>
-      <td  colspan="2"  style="
-    padding-bottom: 10%;"><h1>Find Your Doctor</h1>
-               </td>
-  </tr>
-  <tr>
-      <td>
-                  <input type="text" name="Search" placeholder="Search here" style="  position: relative;
- height: 20%;
- width: 80%;
- border-radius: 20px;
- background: #fff;
- outline:none;
- border-color: #1172ca;
- padding-left: 20px;
- ">
-      </td>
-    <td>
-        <input type="submit"  value=" Search " style="  
- border-radius: 25px;
- background-color: #1172ca;
- color:white;
-  border-color:white; 
-;
- " ></td>
-  </tr>
-  
-</table>                    
-     
-                  
-          
-                  
-</form>
-
-
-</div>
-    
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
   <!-- ======= Footer ======= -->
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <!-- =======  Section ======= -->
-    <section id="result" class="contact">
-
-                                      <div class="container">
-                                       <div class="row mt-5">
-                                         <div class="col-lg-8 mt-5 mt-lg-0">
-
+  <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+           String formattedDate = df.format(new Date());
             
-                                             
-                                             
-         
-                                             
-                                             
-                                             
-                              <div class="row">
 
-       
-          
-        </div>                      
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
+            int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
+            out.print(""+x+"");
+         %>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <section id="appointment">
+  
+                                         
                                              
         <%
-            if(request.getParameter("Search") != null)
-            {
-            if(!request.getParameter("Search").equals(" "))
-                    {
-                        String dic =request.getParameter("Search");
-                        out.println(" Results Of  "+dic);
-                      %><div class="row"><%  
-                        
-                        
-                        
-                            try {
-                          
-                                DBCon con = new DBCon();
-                                PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM doctor WHERE docfirstname = ?"); 
-                                ps.setString(1, dic);
-                                ResultSet rs = ps.executeQuery();
-                                while (rs.next()) {
-                         %>
-                        <div >
-                    
-
-                                
+             DBCon con = new DBCon();
+             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM appointment WHERE docid = ?"); 
+             ps.setString(1, nameid);
+             ResultSet rs = ps.executeQuery();
+        
+        
+             
+            
+             
+             while (rs.next())
+              {
+                  
+                  %>
+                  
+                  
+                    <div class="col-lg-8" style="
+     margin-top: 5%;left:10%;"  >
+            <div class="member d-flex align-items-start">
+              
+             
+                <div class="col-lg-3"> 
+                <h4><%=rs.getString(4)%> </h4>
+                </div> 
+               
+                  <%
+                  
+                  
+                  
+                  String idr = rs.getString("message");
+                  %>
                   
                
-            <div class="col-lg-14" style="
-    margin-bottom: 5%; margin-top: 5%"  >
-            <div class="member d-flex align-items-start">
-                <div class="pic">
-                    <img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><%=rs.getString(3)%> <%=rs.getString(4)%></h4>
-                <span><%=rs.getString(5)%></span>
-                <p><%=rs.getString(2)%></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  
+                  <div class="col-lg-3">
+                  &nbsp;&nbsp;<%
+                  String idr2 = rs.getString("patientid");
+                  String id4=con.getfullpatientNameUsingId(idr2);
+                  out.print(""+id4+"                                    ");
+      
+                  %>&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div class="col-lg-3">
+                      <% out.print(" "+idr+" ");%>
+                  </div>
+                  
+                 <div class="col-lg-3"> 
+                &nbsp;&nbsp;&nbsp;
+                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>" style="color:red"> delete</a>
                 </div>
-                <a href="appintment.jsp?docid=<%=rs.getString(1)%>"> make an appointment</a>
-              </div>
-            </div>
+                </div>
+                  </div>
           </div>
-                                
-                              
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                <%
-                                        }
-                                       // con.close();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                %>
-                               
-                        
-                          </div>   
-                        
-                        
-                         <%
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    }
-            else{
-                out.println("<html> DEDICATED TOWARDS ENSURING THE BEST SERVICE </html>");
-            }
-            
-            }
-            else{
-                out.println("<html> DEDICATED TOWARDS ENSURING THE BEST SERVICE </html>");
-            }
+                
+                  
+                  <br>
+                  
+                  <%
+                 
+              }
             %>                                      
                                                    
       
@@ -538,33 +400,7 @@ out.print("Welcome, "+name1+"  "+name2+"");
                                              
                                              
                                              
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-    
-
-                                         </div>
-
-                                        </div>
-
-                                       </div>
-    </section><!-- End Contact Section -->
-
+                               
   
   
   
@@ -594,20 +430,7 @@ out.print("Welcome, "+name1+"  "+name2+"");
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  </section>
   
   
   
