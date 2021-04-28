@@ -409,11 +409,106 @@ public class DBCon {
     
     
     
+  
+         public String getadminidUsingemail(String id) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE id = ?");
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("lastname");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+        
+    
+    }  
     
     
     
     
+       
+         public String getadminidUsmail(String email) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM admin WHERE email = ?");
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("username");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+         
+         
     
+        
+         
+         
+         
+         
+         
+       
+        
+        
+    
+    }  
+    
+      
+         
+         
+        public int admingetNumofdoctors() throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT COUNT(docid) FROM doctor");
+               ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  int numberOfRows = rs.getInt(1);
+                  return numberOfRows;
+              }
+        return 0;
+        
+        
+    
+    }
+    
+          
+         
+           
+        public int admingetNumofpatients() throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT COUNT(id) FROM patiant");
+               ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  int numberOfRows = rs.getInt(1);
+                  return numberOfRows;
+              }
+        return 0;
+        
+        
+    
+    }
+         
+         
+         
+         
+         
+         
+         
+         
+         
     
     
     
