@@ -282,7 +282,7 @@ String name2 =con2.getLaststNameUsingId(nameid);
 
 
 
-out.print(""+name2+"  "+name1+"");  
+out.print("Welcome, "+name1+"  "+name2+"");  
   
 %></h2>
           <ol>
