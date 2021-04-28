@@ -314,6 +314,15 @@ out.print(""+name2+"  "+name1+"");
   
   
   
+  <div class="section-title">
+          <h1>All appointments</h1>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate..</p>
+ </div>
+  
+         <div>
+  
+  
+  </div>
   
   
   
@@ -360,7 +369,7 @@ out.print(""+name2+"  "+name1+"");
                   %>&nbsp;&nbsp;<%
                   String idr2 = rs.getString("docid");
                   String id4=con.getfulDocNameUsingId(idr2);
-                  out.print("DR."+id4+"       "+idr+"                                   ");
+                  out.print("DR."+id4+"-       "+idr+"                                   ");
                   
             
 

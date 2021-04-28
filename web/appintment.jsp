@@ -368,10 +368,9 @@ out.print(""+name2+"  "+name1+"");
                     <img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4><%=rs.getString(3)%> <%=rs.getString(4)%></h4>
-                <span><%=rs.getString(5)%></span>
-                <p><%=rs.getString(2)%></p>
+                <span><%=rs.getString(7)%></span>
+                <p><%=rs.getString(9)%></p>
                  <p><%=rs.getString(2)%></p>
-                 <p><%=rs.getString(5)%></p>
                  <p><%=rs.getString(6)%></p>
                  <p><%=rs.getString(7)%></p>
                  <p><%=rs.getString(8)%></p>

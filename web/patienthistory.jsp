@@ -308,6 +308,15 @@ out.print(""+name2+"  "+name1+"");
   <!-- ======= Footer ======= -->
   
   
+   <div class="section-title">
+          <h1>Medical History</h1>
+          
+ </div>
+  
+         <div>
+  
+  
+  </div>
   
   
   
