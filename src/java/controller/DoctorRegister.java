@@ -73,8 +73,8 @@ public class DoctorRegister extends HttpServlet {
                availabletimes = request.getParameter("availabletimes"),
                gender = request.getParameter("gender"), 
                aboutme = request.getParameter("aboutme");
-        
-        if(con.registerDoctor( docfirstname, doclastname, doc_nic, password, specialization, availabledays, availabletimes, gender, aboutme)){
+        String epassword =Encrypt.Md5encryption(password);
+        if(con.registerDoctor( docfirstname, doclastname, doc_nic, epassword, specialization, availabledays, availabletimes, gender, aboutme)){
             
             RequestDispatcher req = request.getRequestDispatcher("DoctorLogin.html");
             req.include(request, response);

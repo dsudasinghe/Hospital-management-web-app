@@ -69,11 +69,12 @@ public class PatientLogin extends HttpServlet {
         
         DBCon con = new DBCon();
         
-        String email = request.getParameter("email"),
-                password = request.getParameter("password");
+        String email = request.getParameter("email");
+           String password = request.getParameter("password");
+         String epassword =Encrypt.Md5encryption(password);
         
         try {
-            if(con.verifyPatient(email, password)){
+            if(con.verifyPatient(email, epassword)){
                 HttpSession session=request.getSession();
                 email=con.getidusingemail(email);
                 session.setAttribute("patientids",email); 
