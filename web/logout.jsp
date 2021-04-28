@@ -9,6 +9,8 @@
 
 <%
         request.getSession().removeAttribute("patientids");
+        request.getSession().removeAttribute("adminids");
+        request.getSession().removeAttribute("docids");
         response.sendRedirect("index.html");
         
 %>
