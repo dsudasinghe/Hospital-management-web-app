@@ -473,10 +473,10 @@ out.print(""+name1+"");
   
       <h5 style="text-align: center; margin-top:5%"> -history- </h5>                       
                                              
-        <%
+        <%   String a =request.getParameter("pid");
              DBCon con = new DBCon();
              PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM phistory WHERE patientid = ?"); 
-             ps.setString(1, "15");
+             ps.setString(1,a);
              ResultSet rs = ps.executeQuery();
         
         
@@ -743,8 +743,8 @@ out.print(""+name1+"");
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group">
-                <input name="patientid" value="<% out.print(""+nameid+""); %> " hidden>
-                <input name="docid" value="<%String id1=request.getParameter("docid");out.print(""+id1+"");%>" hidden>
+                <input name="docid" value="<% out.print(""+nameid+""); %> " hidden>
+                <input name="patientid" value="<%String id1=request.getParameter("pid");out.print(""+id1+"");%>" hidden>
                 
             </div>
                 <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
