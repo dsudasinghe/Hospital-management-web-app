@@ -311,13 +311,13 @@ out.print(""+name1+"");
         <div class="section-title">
          
             <h1>Welcome Admin.
-            <% out.print(name1); %> test 
+            <% out.print(name1); %> 
          <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
            String formattedDate = df.format(new Date());
             int x=5;
 
             //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
-            out.print(""+x+"");
+            //out.print(""+x+"");
          %> 
  </h1>
  
@@ -328,7 +328,7 @@ out.print(""+name1+"");
  
  
  <div style="margin-top:10%;">
- <a href="todayappointmentsdocview.jsp" class="more-btn">Check Today Appointments </i>
+ 
   
   </div>
         </div>

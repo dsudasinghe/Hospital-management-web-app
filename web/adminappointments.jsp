@@ -311,6 +311,15 @@ out.print(""+name1+"");
   
   
   
+  <div class="section-title">
+          <h1>All appointments</h1>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate..</p>
+ </div>
+  
+         <div>
+  
+  
+  </div>
   
   
   
