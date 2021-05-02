@@ -506,11 +506,67 @@ public class DBCon {
          
          
          
+   //----------------------------------------+++++++---------------------------------------------------------------------      
          
          
-         
+      
+        public boolean deleteappointment(String apid){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM appointment WHERE appointmentid = ?;");
+            st.setString(1, apid);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
     
-    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
     
 }
 
