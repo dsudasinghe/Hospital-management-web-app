@@ -506,11 +506,107 @@ public class DBCon {
          
          
          
+   //----------------------------------------+++++++---------------------------------------------------------------------      
          
          
-         
+      
+        public boolean deleteappointment(String apid){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM appointment WHERE appointmentid = ?;");
+            st.setString(1, apid);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
     
+       
+       
+       
+     //-----------------------------------history ---------------------------  
+       
+       
+       
+       
+       
+       
+             
+        public boolean deletehistory(String hisd){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM phistory WHERE hisid = ?;");
+            st.setString(1, hisd);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
     
+       
+       
+       
+       
+       
+       
+       
+        
+     //-----------------------------------history ---------------------------  
+       
+       
+       
+       
+       
+       
+             
+        public boolean deletedoc(String doc){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM doctor WHERE docid = ?;");
+            st.setString(1, doc);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
+    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
     
 }
 
