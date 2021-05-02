@@ -1,22 +1,23 @@
 <%-- 
-    Document   : deleteappointment
-    Created on : 02-May-2021, 07:12:15
+    Document   : deletemedicalhistory
+    Created on : 02-May-2021, 09:46:42
     Author     : lalin
 --%>
+
 <%@page import="model.DBCon"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
  <%   
   
-String appimentids=request.getParameter("appimentids");    
+String hisids=request.getParameter("hisids");    
 
 DBCon con4 = new DBCon();
 
-boolean name1 =con4.deleteappointment(appimentids);
+boolean name1 =con4.deletehistory(hisids);
 
 
 if(name1==true){
-    out.print("appointment deleted");  
+    out.print("history deleted");  
 }
 else{
 out.print("request not successful");  

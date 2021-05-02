@@ -528,14 +528,29 @@ public class DBCon {
        
        
        
+     //-----------------------------------history ---------------------------  
        
        
        
        
        
        
-       
-       
+             
+        public boolean deletehistory(String hisd){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM phistory WHERE hisid = ?;");
+            st.setString(1, hisd);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
+    
        
        
        

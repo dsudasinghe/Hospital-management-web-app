@@ -359,6 +359,7 @@ out.print(""+name2+"  "+name1+"");
                   
                   String idr = rs.getString("date");
                   String prescription2 = rs.getString("prescription");
+                  String hisid2 = rs.getString("hisid");
                   %>&nbsp;&nbsp;<%
                   String idr2 = rs.getString("docid");
                   String id4=con.getfulDocNameUsingId(idr2);
@@ -386,7 +387,7 @@ out.print(""+name2+"  "+name1+"");
                    
                    
                 &nbsp;&nbsp;&nbsp;
-                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>" style="color:red"> delete</a>
+                <a href="deletemedicalhistory.jsp?hisids=<%out.print(hisid2);%>" style="color:red"> delete</a>
             
                   </div>
           </div>
