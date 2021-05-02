@@ -1,20 +1,16 @@
 <%-- 
-    Document   : appointmentsdocview
-    Created on : 27-Apr-2021, 19:29:14
+    Document   : adminappointments
+    Created on : 28-Apr-2021, 07:43:10
     Author     : lalin
 --%>
 
 
-<%@page import="java.text.DateFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="model.DBCon"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.servlet.http.HttpSession"%>
-<%@ page import="java.util.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-
 
 
 
@@ -241,13 +237,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-           <li ><a href="doctordash.jsp">Home</a></li>
-          <li class="active"><a href="appointmentsdocview.jsp">appointments</a></li>
-          <li><a href="patientsdocview.jsp">patients
+                         <li ><a href="admindash.jsp">Home</a></li>
+          <li class="active"><a href="adminappointments.jsp">All appointments</a></li>
+          <li><a href="adminpationt.jsp">patients
+              </a></li>
+          <li><a href="admindocview.jsp">doctors
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
-   
-     
               
               
  
@@ -274,12 +270,12 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2> <%   
-  
-String nameid=(String)session.getAttribute("docids");    //Getting Session Attribute
 
+String nameid=(String)session.getAttribute("adminids");    //Getting Session Attribute
+//out.print(""+nameid+""); 
 DBCon con2 = new DBCon();
 
-String name1 =con2.getfulDocNameUsingId(nameid);
+String name1 =con2.getadminidUsmail(nameid);
 
 out.print(""+name1+"");  
   
@@ -305,13 +301,6 @@ out.print(""+name1+"");
   </main><!-- End #main -->
   <!-- ======= Footer ======= -->
   
-  <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-           String formattedDate = df.format(new Date());
-            
-
-            int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
-            out.print(""+x+"");
-         %>
   
   
   
@@ -321,6 +310,16 @@ out.print(""+name1+"");
   
   
   
+  
+  <div class="section-title">
+          <h1>All appointments</h1>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate..</p>
+ </div>
+  
+         <div>
+  
+  
+  </div>
   
   
   
@@ -334,8 +333,8 @@ out.print(""+name1+"");
                                              
         <%
              DBCon con = new DBCon();
-             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM appointment WHERE docid = ?"); 
-             ps.setString(1, nameid);
+             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM appointment"); 
+             //ps.setString(1, nameid);
              ResultSet rs = ps.executeQuery();
         
         
@@ -348,7 +347,7 @@ out.print(""+name1+"");
                   %>
                   
                   
-                    <div class="col-lg-8" style="
+                    <div class="col-lg-6" style="
      margin-top: 5%;left:10%;"  >
             <div class="member d-flex align-items-start">
               
@@ -356,33 +355,34 @@ out.print(""+name1+"");
                 <div class="col-lg-3"> 
                 <h4><%=rs.getString(4)%> </h4>
                 </div> 
-               
+                <div class="col-lg-3"> 
                   <%
                   
                   
                   
                   String idr = rs.getString("message");
+                  %>&nbsp;&nbsp;<%
+                  String idr2 = rs.getString("docid");
+                  String id4=con.getfulDocNameUsingId(idr2);
+                  out.print("DR."+id4+"       "+idr+"                                   ");
+                  
+              
+
                   %>
-                  
-               
-                  
-                  <div class="col-lg-3">
+                   </div>
+                   <div class="col-lg-3">
                   &nbsp;&nbsp;<%
-                  String idr2 = rs.getString("patientid");
+                  String idr6 = rs.getString("patientid");
                   String idr16 = rs.getString("appointmentid");
-                  String id4=con.getfullpatientNameUsingId(idr2);
-                  out.print(""+id4+"                                    ");
+                  String id7=con.getfullpatientNameUsingId(idr6);
+                  out.print(""+id7+"    ");
       
                   %>&nbsp;&nbsp;&nbsp;
                   </div>
-                  <div class="col-lg-3">
-                      <% out.print(" "+idr+" ");%>
-                  </div>
-                  
+                 
                  <div class="col-lg-3"> 
                 &nbsp;&nbsp;&nbsp;
-                <a href="deleteappointment.jsp?appimentids=<%out.print(idr16);%>" style="color:red"> delete</a>
-                </div>
+                 <a href="deleteappointment.jsp?appimentids=<%out.print(idr16);%>" style="color:red"> delete</a>
                 </div>
                   </div>
           </div>

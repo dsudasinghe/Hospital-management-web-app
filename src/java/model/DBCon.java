@@ -409,13 +409,204 @@ public class DBCon {
     
     
     
+  
+         public String getadminidUsingemail(String id) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM patiant WHERE id = ?");
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("lastname");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+        
+    
+    }  
     
     
     
     
+       
+         public String getadminidUsmail(String email) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT * FROM admin WHERE email = ?");
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  String idr = rs.getString("username");
+                  
+      
+                  return idr;
+              }
+        return "0";
+        
+         
+         
     
+        
+         
+         
+         
+         
+         
+       
+        
+        
     
+    }  
     
+      
+         
+         
+        public int admingetNumofdoctors() throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT COUNT(docid) FROM doctor");
+               ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  int numberOfRows = rs.getInt(1);
+                  return numberOfRows;
+              }
+        return 0;
+        
+        
+    
+    }
+    
+          
+         
+           
+        public int admingetNumofpatients() throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT COUNT(id) FROM patiant");
+               ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  int numberOfRows = rs.getInt(1);
+                  return numberOfRows;
+              }
+        return 0;
+        
+        
+    
+    }
+         
+         
+         
+         
+         
+         
+   //----------------------------------------+++++++---------------------------------------------------------------------      
+         
+         
+      
+        public boolean deleteappointment(String apid){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM appointment WHERE appointmentid = ?;");
+            st.setString(1, apid);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
+    
+       
+       
+       
+     //-----------------------------------history ---------------------------  
+       
+       
+       
+       
+       
+       
+             
+        public boolean deletehistory(String hisd){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM phistory WHERE hisid = ?;");
+            st.setString(1, hisd);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
+    
+       
+       
+       
+       
+       
+       
+       
+        
+     //-----------------------------------history ---------------------------  
+       
+       
+       
+       
+       
+       
+             
+        public boolean deletedoc(String doc){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM doctor WHERE docid = ?;");
+            st.setString(1, doc);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
+    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
     
 }
 

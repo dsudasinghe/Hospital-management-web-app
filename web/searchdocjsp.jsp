@@ -469,8 +469,8 @@ out.print("Welcome, "+name1+"  "+name2+"");
                     <img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4><%=rs.getString(3)%> <%=rs.getString(4)%></h4>
-                <span><%=rs.getString(5)%></span>
-                <p><%=rs.getString(2)%></p>
+                <span><%=rs.getString(9)%></span>
+                <p><%=rs.getString(6)%></p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>

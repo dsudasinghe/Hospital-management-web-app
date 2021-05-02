@@ -240,9 +240,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="doctordash.jsp">Home</a></li>
+          <li ><a href="doctordash.jsp">Home</a></li>
           <li><a href="appointmentsdocview.jsp">appointments</a></li>
-          <li><a href="patientsdocview.jsp">patients
+          <li class="active"><a href="patientsdocview.jsp">patients
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
    
@@ -368,6 +368,7 @@ out.print(""+name1+"");
                   <div class="col-lg-3">
                   &nbsp;&nbsp;<%
                   String idr2 = rs.getString("patientid");
+                  String idr16 = rs.getString("appointmentid");
                   String id4=con.getfullpatientNameUsingId(idr2);
                   out.print(""+id4+"                                    ");
       
@@ -380,7 +381,7 @@ out.print(""+name1+"");
                   <p><a href="giveprescriptions.jsp?pid=<%=rs.getString(3)%>">
 <img src="images/expand.png" alt="W3Schools.com" width="50" height="50">
 </a>
-             &nbsp;&nbsp;     <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>" style="color:red"> delete</a></p>
+             &nbsp;&nbsp;    <a href="deleteappointment.jsp?appimentids=<%out.print(idr16);%>" style="color:red">delete</a></p>
 
 </div>
                   

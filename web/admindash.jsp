@@ -1,10 +1,8 @@
 <%-- 
-    Document   : appointmentsdocview
-    Created on : 27-Apr-2021, 19:29:14
+    Document   : admindash
+    Created on : 28-Apr-2021, 06:12:50
     Author     : lalin
 --%>
-
-
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -241,9 +239,11 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-           <li ><a href="doctordash.jsp">Home</a></li>
-          <li class="active"><a href="appointmentsdocview.jsp">appointments</a></li>
-          <li><a href="patientsdocview.jsp">patients
+                 <li class="active"><a href="admindash.jsp">Home</a></li>
+          <li><a href="adminappointments.jsp">All appointments</a></li>
+          <li><a href="adminpationt.jsp">patients
+              </a></li>
+          <li><a href="admindocview.jsp">doctors
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
    
@@ -274,12 +274,12 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2> <%   
-  
-String nameid=(String)session.getAttribute("docids");    //Getting Session Attribute
 
+String nameid=(String)session.getAttribute("adminids");    //Getting Session Attribute
+//out.print(""+nameid+""); 
 DBCon con2 = new DBCon();
 
-String name1 =con2.getfulDocNameUsingId(nameid);
+String name1 =con2.getadminidUsmail(nameid);
 
 out.print(""+name1+"");  
   
@@ -301,107 +301,145 @@ out.print(""+name1+"");
       
       
       
+      
+      
+      
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
 
+        <div class="section-title">
+         
+            <h1>Welcome Admin.
+            <% out.print(name1); %> 
+         <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+           String formattedDate = df.format(new Date());
+            int x=5;
+
+            //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
+            //out.print(""+x+"");
+         %> 
+ </h1>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div style="margin-top:10%;">
+ 
+  
+  </div>
+        </div>
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      </div>
+
+ 
+
+
+      <div class="container">
+        <div class="row mt-5">
+
+        
+
+      </div>
+    </section><!-- End Contact Section -->
+
+    
+    
+        <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6">
+            <div class="count-box">
+              <i class="icofont-doctor-alt"></i>
+              <span data-toggle="counter-up"><% con2.admingetNumofdoctors();
+            //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
+            out.print(""+x+""); %></span>
+              <p>   
+                  doctors
+         </p>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="icofont-patient-bed"></i>
+              <span data-toggle="counter-up"><% con2.admingetNumofpatients();
+            //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
+            out.print(""+x+""); %></span>
+              <p>patients</p>
+            </div>
+          </div>
+
+            
+              
+              
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   </main><!-- End #main -->
   <!-- ======= Footer ======= -->
   
-  <% DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-           String formattedDate = df.format(new Date());
-            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <!-- =======  Section ======= -->
+    <section id="result" class="contact">
 
-            int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
-            out.print(""+x+"");
-         %>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <section id="appointment">
-  
-                                         
-                                             
-        <%
-             DBCon con = new DBCon();
-             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM appointment WHERE docid = ?"); 
-             ps.setString(1, nameid);
-             ResultSet rs = ps.executeQuery();
-        
-        
-             
-            
-             
-             while (rs.next())
-              {
-                  
-                  %>
-                  
-                  
-                    <div class="col-lg-8" style="
-     margin-top: 5%;left:10%;"  >
-            <div class="member d-flex align-items-start">
-              
-             
-                <div class="col-lg-3"> 
-                <h4><%=rs.getString(4)%> </h4>
-                </div> 
-               
-                  <%
-                  
-                  
-                  
-                  String idr = rs.getString("message");
-                  %>
-                  
-               
-                  
-                  <div class="col-lg-3">
-                  &nbsp;&nbsp;<%
-                  String idr2 = rs.getString("patientid");
-                  String idr16 = rs.getString("appointmentid");
-                  String id4=con.getfullpatientNameUsingId(idr2);
-                  out.print(""+id4+"                                    ");
-      
-                  %>&nbsp;&nbsp;&nbsp;
-                  </div>
-                  <div class="col-lg-3">
-                      <% out.print(" "+idr+" ");%>
-                  </div>
-                  
-                 <div class="col-lg-3"> 
-                &nbsp;&nbsp;&nbsp;
-                <a href="deleteappointment.jsp?appimentids=<%out.print(idr16);%>" style="color:red"> delete</a>
-                </div>
-                </div>
-                  </div>
-          </div>
-                
-                  
-                  <br>
-                  
-                  <%
-                 
-              }
-            %>                                      
-                                                   
-      
+    </section><!-- End Contact Section -->
 
-                                             
-                                             
-                                             
-                                             
-                               
   
   
   
@@ -431,7 +469,20 @@ out.print(""+name1+"");
   
   
   
-  </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

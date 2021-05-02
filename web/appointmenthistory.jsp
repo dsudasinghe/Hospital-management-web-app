@@ -236,8 +236,8 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-              <li class="active"><a href="searchdocjsp.jsp">Home</a></li>
-          <li><a href="appointmenthistory.jsp">appointments</a></li>
+              <li ><a href="searchdocjsp.jsp">Home</a></li>
+          <li class="active"><a href="appointmenthistory.jsp">appointments</a></li>
           <li><a href="patienthistory.jsp">history
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
@@ -314,6 +314,15 @@ out.print(""+name2+"  "+name1+"");
   
   
   
+  <div class="section-title">
+          <h1>All appointments</h1>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate..</p>
+ </div>
+  
+         <div>
+  
+  
+  </div>
   
   
   
@@ -359,8 +368,9 @@ out.print(""+name2+"  "+name1+"");
                   String idr = rs.getString("message");
                   %>&nbsp;&nbsp;<%
                   String idr2 = rs.getString("docid");
+                  String idr16 = rs.getString("appointmentid");
                   String id4=con.getfulDocNameUsingId(idr2);
-                  out.print("DR."+id4+"       "+idr+"                                   ");
+                  out.print("DR."+id4+"-       "+idr+"                                   ");
                   
             
 
@@ -368,7 +378,7 @@ out.print(""+name2+"  "+name1+"");
                  </div> 
                  <div class="col-lg-3"> 
                 &nbsp;&nbsp;&nbsp;
-                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>" style="color:red"> delete</a>
+                               <a href="deleteappointment.jsp?appimentids=<%out.print(idr16);%>" style="color:red"> delete</a>
                 </div>
                   </div>
           </div>
