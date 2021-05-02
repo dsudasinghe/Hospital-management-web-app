@@ -237,15 +237,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-              <li class="active"><a href="admindash.jsp">Home</a></li>
-          <li><a href="appointmenthistory.jsp">appointments</a></li>
-          <li><a href="patienthistory.jsp">history
+                           <li ><a href="admindash.jsp">Home</a></li>
+          <li ><a href="adminappointments.jsp">All appointments</a></li>
+          <li><a href="adminpationt.jsp">patients
+              </a></li>
+          <li class="active"><a href="admindocview.jsp">doctors
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
-   
-     
-              
-              
  
               
        
@@ -370,7 +368,7 @@ out.print(""+name1+"");
                 </div>
                 <div class="member-info">
                 
-                 <a href="deleteappointment.jsp?docid=<%=rs.getString(1)%>" style="color:red"> delete</a>              </div>
+                 <a href="deletedocjsp.jsp?docid=<%=rs.getString(1)%>" style="color:red"> delete</a>              </div>
                  </div>
             </div>
           </div>

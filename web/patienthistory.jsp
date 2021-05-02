@@ -237,9 +237,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-                 <li class="active"><a href="searchdocjsp.jsp">Home</a></li>
+                 <li ><a href="searchdocjsp.jsp">Home</a></li>
           <li><a href="appointmenthistory.jsp">appointments</a></li>
-          <li><a href="patienthistory.jsp">history
+          <li class="active"><a href="patienthistory.jsp">history
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
    

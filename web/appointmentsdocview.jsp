@@ -241,8 +241,8 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-           <li class="active"><a href="doctordash.jsp">Home</a></li>
-          <li><a href="appointmentsdocview.jsp">appointments</a></li>
+           <li ><a href="doctordash.jsp">Home</a></li>
+          <li class="active"><a href="appointmentsdocview.jsp">appointments</a></li>
           <li><a href="patientsdocview.jsp">patients
               </a></li>
           <li><a href="logout.jsp">logout</a></li>

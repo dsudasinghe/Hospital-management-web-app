@@ -558,6 +558,31 @@ public class DBCon {
        
        
        
+        
+     //-----------------------------------history ---------------------------  
+       
+       
+       
+       
+       
+       
+             
+        public boolean deletedoc(String doc){
+        int x = 0;
+        
+        try{
+            
+            PreparedStatement st = createConnection().prepareStatement("DELETE FROM doctor WHERE docid = ?;");
+            st.setString(1, doc);
+            x =st.executeUpdate();
+            
+        }catch(ClassNotFoundException | SQLException e){
+        }
+        
+        return x == 1;
+    }
+    
+       
        
        
        

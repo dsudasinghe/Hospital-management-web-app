@@ -237,13 +237,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-              <li class="active"><a href="admindash.jsp">Home</a></li>
-          <li><a href="appointmenthistory.jsp">appointments</a></li>
-          <li><a href="patienthistory.jsp">history
+                         <li ><a href="admindash.jsp">Home</a></li>
+          <li class="active"><a href="adminappointments.jsp">All appointments</a></li>
+          <li><a href="adminpationt.jsp">patients
+              </a></li>
+          <li><a href="admindocview.jsp">doctors
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
-   
-     
               
               
  
@@ -373,6 +373,7 @@ out.print(""+name1+"");
                    <div class="col-lg-3">
                   &nbsp;&nbsp;<%
                   String idr6 = rs.getString("patientid");
+                  String idr16 = rs.getString("appointmentid");
                   String id7=con.getfullpatientNameUsingId(idr6);
                   out.print(""+id7+"    ");
       
@@ -381,7 +382,7 @@ out.print(""+name1+"");
                  
                  <div class="col-lg-3"> 
                 &nbsp;&nbsp;&nbsp;
-                <a href="http://localhost:8080/Hospital_Management_Web/deleteappointment.jsp?docid=<%out.print(idr2);%>" style="color:red"> delete</a>
+                 <a href="deleteappointment.jsp?appimentids=<%out.print(idr16);%>" style="color:red"> delete</a>
                 </div>
                   </div>
           </div>
