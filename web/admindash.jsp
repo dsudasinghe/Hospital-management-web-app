@@ -376,9 +376,9 @@ out.print(""+name1+"");
           <div class="col-lg-6 col-md-6">
             <div class="count-box">
               <i class="icofont-doctor-alt"></i>
-              <span data-toggle="counter-up"><% con2.admingetNumofdoctors();
-            //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
-            out.print(""+x+""); %></span>
+              <span data-toggle="counter-up"><% 
+            int x2 = con2.admingetNumofdoctors();
+            out.print(""+x2+""); %></span>
               <p>   
                   doctors
          </p>
@@ -389,9 +389,9 @@ out.print(""+name1+"");
           <div class="col-lg-6 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="icofont-patient-bed"></i>
-              <span data-toggle="counter-up"><% con2.admingetNumofpatients();
-            //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
-            out.print(""+x+""); %></span>
+              <span data-toggle="counter-up"><%
+            int x3 =  con2.admingetNumofpatients();
+            out.print(""+x3+""); %></span>
               <p>patients</p>
             </div>
           </div>
