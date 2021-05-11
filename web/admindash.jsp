@@ -52,7 +52,7 @@
 
   <!-- bootstrap File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
 
 
 
@@ -241,10 +241,11 @@
         <ul>
                  <li class="active"><a href="admindash.jsp">Home</a></li>
           <li><a href="adminappointments.jsp">All appointments</a></li>
-          <li><a href="adminpationt.jsp">patients
+          <li><a href="adminpatientview.jsp">patients
               </a></li>
           <li><a href="admindocview.jsp">doctors
               </a></li>
+              
           <li><a href="logout.jsp">logout</a></li>
    
      
@@ -295,15 +296,12 @@ out.print(""+name1+"");
       
       
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
+    
+    
+    
+    
+    
+          
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
@@ -367,6 +365,142 @@ out.print(""+name1+"");
 
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       
+      
+      
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+         
+           <canvas id="line-chart" width="400" height="250"></canvas>
+<script>
+new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'],
+    datasets: [{ 
+        data: [<% 
+             int mm2 =con2.ganumofpaaccmonth("01");
+             out.print(""+mm2+""); 
+              %><%
+            for (int i = 1; i < 12; i++) {
+              int mm1 =con2.ganumofpaaccmonth("0"+i);
+             out.print(","+mm1+""); ;
+}
+              %>],
+        label: "Patients",
+        borderColor: "#3e95cd",
+        fill: false
+      }, 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'World'
+    }
+  }
+});
+
+</script> 
+        </div>
+ 
+      </div>
+ 
+ 
+
+    </section><!-- End Counts Section -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+    
         <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
       <div class="container">
@@ -376,9 +510,16 @@ out.print(""+name1+"");
           <div class="col-lg-6 col-md-6">
             <div class="count-box">
               <i class="icofont-doctor-alt"></i>
-              <span data-toggle="counter-up"><% con2.admingetNumofdoctors();
-            //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
-            out.print(""+x+""); %></span>
+              <span data-toggle="counter-up"><% 
+            int x2 = con2.admingetNumofdoctors();
+            out.print(""+x2+""); 
+              ; 
+              
+              %>
+              
+              
+              
+              </span>
               <p>   
                   doctors
          </p>
@@ -389,9 +530,9 @@ out.print(""+name1+"");
           <div class="col-lg-6 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="icofont-patient-bed"></i>
-              <span data-toggle="counter-up"><% con2.admingetNumofpatients();
-            //int x = con2.getNumofAppointmentFordayUsingId(nameid,formattedDate);
-            out.print(""+x+""); %></span>
+              <span data-toggle="counter-up"><%
+            int x3 =  con2.admingetNumofpatients();
+            out.print(""+x3+""); %></span>
               <p>patients</p>
             </div>
           </div>
@@ -408,6 +549,37 @@ out.print(""+name1+"");
     
     
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     

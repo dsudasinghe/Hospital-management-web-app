@@ -463,6 +463,60 @@ public class DBCon {
     
     }  
     
+         
+         
+         
+         
+         
+         public int ganumofpaaccmonth(String mon) throws ClassNotFoundException, SQLException{
+        //String idr = null;
+        PreparedStatement ps = createConnection().prepareStatement("SELECT COUNT(appointmentid) FROM appointment WHERE date Like ?");
+        ps.setString(1, mon+"%");
+        ResultSet rs = ps.executeQuery();
+        
+             while (rs.next())
+              {
+                  int numberOfRows = rs.getInt(1);
+                  return numberOfRows;
+              }
+        return 0;
+        
+         
+         
+    
+        
+         
+         
+         
+         
+         
+       
+        
+        
+    
+    }  
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
       
          
          

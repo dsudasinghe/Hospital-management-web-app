@@ -239,7 +239,7 @@
         <ul>
                          <li ><a href="admindash.jsp">Home</a></li>
           <li class="active"><a href="adminappointments.jsp">All appointments</a></li>
-          <li><a href="adminpationt.jsp">patients
+       <li><a href="adminpatientview.jsp">patients
               </a></li>
           <li><a href="admindocview.jsp">doctors
               </a></li>

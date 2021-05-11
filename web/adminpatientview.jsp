@@ -1,9 +1,8 @@
 <%-- 
-    Document   : admindocview
-    Created on : 28-Apr-2021, 08:25:43
+    Document   : adminpatientview
+    Created on : 10-May-2021, 09:28:33
     Author     : lalin
 --%>
-
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -239,9 +238,9 @@
         <ul>
                            <li ><a href="admindash.jsp">Home</a></li>
           <li ><a href="adminappointments.jsp">All appointments</a></li>
-         <li><a href="adminpatientview.jsp">patients
+          <li class="active"><a href="adminpatientview.jsp">patients
               </a></li>
-          <li class="active"><a href="admindocview.jsp">doctors
+              <li ><a href="admindocview.jsp">doctors
               </a></li>
           <li><a href="logout.jsp">logout</a></li>
  
@@ -303,7 +302,7 @@ out.print(""+name1+"");
   
   
   <div class="section-title">
-          <h1>Doctors</h1>
+          <h1>Patients</h1>
          
  </div>
   
@@ -331,7 +330,7 @@ out.print(""+name1+"");
                                              
         <%
              DBCon con = new DBCon();
-             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM doctor"); 
+             PreparedStatement ps = con.createConnection().prepareStatement("SELECT * FROM patiant"); 
              //ps.setString(1, nameid);
              ResultSet rs = ps.executeQuery();
         
@@ -349,17 +348,17 @@ out.print(""+name1+"");
     margin-bottom: 5%; margin-top: 5%"  >
             <div class="member d-flex align-items-start">
                 <div class="pic">
-                    <img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
+                    <img src="assets/img/pat.JPG" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4><%=rs.getString(3)%> <%=rs.getString(4)%></h4>
+                <h4><%=rs.getString(2)%> </h4>
                
-                <p><%=rs.getString(2)%></p>
-                <p><%=rs.getString(6)%></p>
+                <p><%=rs.getString(8)%></p>
+                <p><%=rs.getString(9)%></p>
                
               </div>
               <div class="member-info">
-                <p><%=rs.getString(7)%></p>
-                <p> available at <%=rs.getString(8)%></p>
+                <p><%=rs.getString(3)%></p>
+                <p> <%=rs.getString(8)%></p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -368,7 +367,7 @@ out.print(""+name1+"");
                 </div>
                 <div class="member-info">
                 
-                 <a href="deletedocjsp.jsp?docid=<%=rs.getString(1)%>" style="color:red"> delete</a>              </div>
+                             </div>
                  </div>
             </div>
           </div>
